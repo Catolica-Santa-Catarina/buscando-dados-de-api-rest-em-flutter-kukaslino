@@ -47,6 +47,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getData();
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
     return const Center(
