@@ -1,38 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:tempo_template/utilities/constants.dart';
 
-import '../services/weather.dart';
-
 class LocationScreen extends StatefulWidget {
-  LocationScreen({required this.locationWeather, Key? key}) : super(key: key);
-  final dynamic locationWeather;
+  const LocationScreen({Key? key}) : super(key: key);
 
   @override
   State<LocationScreen> createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  late int temperature;  // o valor, em inteiros, da temperatura
-  late String weatherIcon;  // o ícone para a condição climática
-  late String cityName;  // o nome da cidade
-  late String message;  // Frase para o usuário, de acordo com a temperatura
-
-  WeatherModel weather = WeatherModel();
-
-  void updateUI(dynamic weatherData) {
-    var condition = weatherData['weather'][0]['id'];
-    weatherIcon = weather.getWeatherIcon(condition);
-    double temp = weatherData['main']['temp'];
-    temperature = temp.toInt();
-    message = weather.getMessage(temperature);
-    cityName = weatherData['name'];
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    updateUI(widget.locationWeather);
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,10 +31,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextButton(
-                    onPressed: () async {
-                      var weatherData = await weather.getLocationWeather();
-                      updateUI(weatherData);
-                    },
+                    onPressed: () {},
                     child: const Icon(
                       Icons.near_me,
                       size: 50.0,
