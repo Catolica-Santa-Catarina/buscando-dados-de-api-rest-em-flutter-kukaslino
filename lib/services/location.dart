@@ -23,15 +23,17 @@ class Location {
     }
     if (permission == LocationPermission.deniedForever) {
       // permissões negadas para sempre
-      return Future.error(
-          'A permissão para acesso a localização foi negada para sempre. Não é possível pedir permissão.');
+      return Future.error('A permissão para acesso a localização foi negada para sempre. Não é possível pedir permissão.');
     }
   }
 
-  Future<void> getLocation() async {
+  Future<void> getCurrentLocation() async {
+    // Verificando permissão de acesso
     await checkLocationPermission();
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy:  LocationAccuracy.low);
-    latitude = position.latitude;
-    longitude = position.longitude;
+
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+
+    latitude = position.latitude!;
+    longitude = position.longitude!;
   }
 }
