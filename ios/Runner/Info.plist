@@ -2,11 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-<<<<<<< HEAD
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>This app needs access to location when open.</string>
-=======
->>>>>>> 4d15b131abd95141f794c7f7983a1c3e0ede6809
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

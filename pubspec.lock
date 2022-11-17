@@ -67,7 +67,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -136,8 +135,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
-=======
->>>>>>> 4d15b131abd95141f794c7f7983a1c3e0ede6809
   lints:
     dependency: transitive
     description:
@@ -173,7 +170,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.2"
-<<<<<<< HEAD
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -181,8 +177,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
-=======
->>>>>>> 4d15b131abd95141f794c7f7983a1c3e0ede6809
   sky_engine:
     dependency: transitive
     description: flutter
@@ -230,7 +224,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
-<<<<<<< HEAD
   typed_data:
     dependency: transitive
     description:
@@ -238,8 +231,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-=======
->>>>>>> 4d15b131abd95141f794c7f7983a1c3e0ede6809
   vector_math:
     dependency: transitive
     description:
@@ -249,7 +240,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.17.2 <3.0.0"
-<<<<<<< HEAD
   flutter: ">=2.8.0"
-=======
->>>>>>> 4d15b131abd95141f794c7f7983a1c3e0ede6809
