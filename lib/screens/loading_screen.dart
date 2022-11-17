@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tempo_template/services/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:tempo_template/screens/location_screen.dart';
+import '../services/location.dart';
+import 'dart:convert';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../services/weather.dart';
+
+
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -10,46 +17,44 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  late double latitude;
+  late double longitude;
 
-  Future<void> getLocation() async {
-    Location location = Location();
-    await location.getLocation();
-
-    print(location.latitude);
-    print(location.longitude);
+  void pushToLocationScreen(dynamic weatherData) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LocationScreen(locationWeather: weatherData);
+    }));
   }
 
   void getData() async {
-    var url = Uri.parse('https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22');
-    http.Response response = await http.get(url);
+    var weatherData = await WeatherModel().getLocationWeather();
+    pushToLocationScreen(weatherData);
+  }
 
-    if (response.statusCode == 200) { // se a requisição foi feita com sucesso
-      var data = response.body;
-      print(data);  // imprima o resultado
-    } else {
-      print(response.statusCode);  // senão, imprima o código de erro
-    }
+  Future<void> getLocation() async {
+    var location = Location();
+    await location.getCurrentLocation();
+
+    latitude = location.latitude!;
+    longitude = location.longitude!;
+
+    getData();
   }
 
   @override
   void initState() {
     super.initState();
-    getLocation();
+    getData();
   }
 
   
 
   @override
   Widget build(BuildContext context) {
-    getData();
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            // obtém a localização atual
-          },
-          child: const Text('Obter Localização'),
-        ),
+    return const Center(
+      child: SpinKitDoubleBounce(
+        color: Colors.white,
+        size: 100.0,
       ),
     );
   }
